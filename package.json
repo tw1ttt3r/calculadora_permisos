@@ -1,0 +1,10 @@
+{
+  "name": "calculadora_permisos",
+  "version": "0.0.0",
+  "description": "Calculadora de permisos de archivos y directorios",
+  "main": "index.mjs",
+  "repository": "git@github.com:tw1ttt3r/calculadora_permisos.git",
+  "author": "tw1ttt3r <tw1ttt3r@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
