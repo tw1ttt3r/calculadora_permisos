@@ -1,0 +1,11 @@
+body {
+  @apply h-dvh w-dvw;
+}
+
+@utility root {
+  @apply w-screen h-screen flex justify-center items-center;
+}
+
+@utility calculator {
+  @apply border rounded min-w-4/6 h-40;
+}
