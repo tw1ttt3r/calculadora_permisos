@@ -9,6 +9,18 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "dev": "serve ."
+    "dev": "concurrently -n \"TW,APP\" -c \"blue,green\" \"yarn tw:watch\" \"yarn serve\"",
+    "dev:build": "yarn tw:build && yarn dev",
+    "serve": "serve .",
+    "tw:watch": "tailwindcss -i ./src/styles/config/input.css -o ./src/styles/styles.css --watch",
+    "tw:build": "tailwindcss -i ./src/styles/config/input.css -o ./src/styles/styles.css --minify",
+    "build": "yarn tw:build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "concurrently": "^9.2.1",
+    "serve": "^14.2.6",
+    "tailwindcss": "^4.2.2"
   }
 }
