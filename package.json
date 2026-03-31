@@ -1,6 +1,6 @@
 {
   "name": "calculadora_permisos",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Calculadora de permisos de archivos y directorios",
   "main": "src/index.mjs",
   "repository": "git@github.com:tw1ttt3r/calculadora_permisos.git",
