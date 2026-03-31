@@ -1,0 +1,6 @@
+@theme {
+  --font-roboto: "Roboto Mono", sans-serif;
+  --font-sometype: "Sometype Mono", sans-serif;
+
+  --text-2xs: 6px;
+}
