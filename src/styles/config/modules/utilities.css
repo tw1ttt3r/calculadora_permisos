@@ -11,5 +11,5 @@ body {
 }
 
 @utility calculator-control {
-  @apply flex flex-col;
+  @apply flex flex-col gap-2;
 }
