@@ -6,10 +6,18 @@ body {
   @apply w-screen h-screen flex justify-center items-center;
 }
 
-@utility calculator {
-  @apply border rounded min-w-4/6 h-40 flex gap-2 justify-around;
+@utility container-calculator {
+  @apply border rounded min-w-4/6 h-40 gap-2 justify-around;
 }
 
 @utility calculator-control {
   @apply flex flex-col gap-2;
+}
+
+@utility container-calculator-visible {
+  @apply flex;
+}
+
+@utility container-calculator-invisible {
+  @apply hidden;
 }
