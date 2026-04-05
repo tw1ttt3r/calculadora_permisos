@@ -21,3 +21,11 @@ body {
 @utility container-calculator-invisible {
   @apply hidden;
 }
+
+@utility tab-disabled {
+  @apply cursor-not-allowed;
+}
+
+@utility tab-enabled {
+  @apply cursor-pointer;
+}

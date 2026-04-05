@@ -12,9 +12,11 @@ function buildTabs() {
         k.classList.add("font-bold")
       }
       k.addEventListener("click", () => {
-        updateTabStore(p)
-        setSelectionTab(p)
-        activeCalculator(p)
+        if (!k.classList.contains("tab-disabled")) {
+          updateTabStore(p)
+          setSelectionTab(p)
+          activeCalculator(p)
+        }
       })
     })
 
@@ -73,12 +75,41 @@ function buildControls(permisos) {
     })
 }
 
+function buildControlsTipos(tipos) {
+  getElements("permisos-control-tipos")
+    .forEach((k) => {
+      k.append(...buildOptionTipos(tipos))
+      initValueControlTipos(k, 0, tipos)
+      k.addEventListener("change", (e) => {
+        const { value } = e.target
+        const { desc } = tipos[value]
+        getElements("controls-tipos-description")[0].textContent = desc
+      })
+    })
+}
+
+function buildOptionTipos(tipos) {
+  return Object.entries(tipos)
+    .map(([a, { value, desc }]) => {
+      const e = document.createElement("option")
+      e.setAttribute("value", a)
+      e.setAttribute("label", value)
+      return e
+    })
+}
+
 function initValueControl(c, p, permisos) {
   c.setAttribute("selectedIndex", p.toString())
   const { value: v } = permisos[p]
   getElements("controls-user-description")[p].textContent = v
   getElements("controls-group-description")[p].textContent = v
   getElements("controls-others-description")[p].textContent = v
+}
+
+function initValueControlTipos(c, p, tipos) {
+  c.setAttribute("selectedIndex", p.toString())
+  const { value: v } = tipos[p]
+  getElements("controls-tipos-description")[p].textContent = v
 }
 
 function buildOptions(permisos) {
@@ -95,5 +126,6 @@ function buildOptions(permisos) {
 export {
   init,
   buildControls,
-  buildTabs
+  buildTabs,
+  buildControlsTipos
 }
