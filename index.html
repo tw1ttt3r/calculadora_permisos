@@ -29,13 +29,27 @@
               <span>(x)</span>
               <span></span>
             </li>
+            <li>
+              <span>Sin permiso</span>
+              <span>(-)</span>
+              <span></span>
+            </li>
           </ul>
         </section>
-        <div class="flex gap-1 *:border-t-0 *:border-b-0 *:cursor-pointer">
-          <p class="border-x px-1 tab">Selección</p>
-          <p class="border-x px-1 tab">Avanzado</p>
+        <div class="flex gap-1 *:border-t-0 *:border-b-0 *:select-none">
+          <p class="border-x px-1 tab tab-enabled">Selección</p>
+          <p class="border-x px-1 tab tab-disabled">Avanzado</p>
         </div>
         <section class="container-calculator calculator">
+          <div class="calculator-control">
+            <div class="flex flex-col">
+              <span>Tipo</span>
+              <select id="controls-tipos" class="permisos-control-tipos"></select>
+            </div>
+            <div class="flex items-center">
+              <span class="controls-tipos-description"></span>
+            </div>
+          </div>
           <div class="calculator-control">
             <div class="flex flex-col">
               <span>Usuario</span>
