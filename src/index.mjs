@@ -1,4 +1,4 @@
-import permisos from "./static/permisos.mjs"
+import { permisos, permisosClaves } from "./static/permisos.mjs"
 import {
   init,
   buildControls,
@@ -6,8 +6,9 @@ import {
   buildControlsTipos
 } from "./config/init.config.mjs"
 import tipos from "./static/tipos.mjs"
+import regex from "./static/regex.mjs"
 
 init()
 buildTabs()
 buildControls(permisos)
-buildControlsTipos(tipos)
+buildControlsTipos(tipos, permisosClaves, regex)

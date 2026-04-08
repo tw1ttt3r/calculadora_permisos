@@ -38,47 +38,57 @@
         </section>
         <div class="flex gap-1 *:border-t-0 *:border-b-0 *:select-none">
           <p class="border-x px-1 tab tab-enabled">Selección</p>
-          <p class="border-x px-1 tab tab-disabled">Avanzado</p>
+          <p class="border-x px-1 tab tab-enabled">Avanzado</p>
         </div>
         <section class="container-calculator calculator">
-          <div class="calculator-control">
-            <div class="flex flex-col">
-              <span>Tipo</span>
-              <select id="controls-tipos" class="permisos-control-tipos"></select>
+          <form class="form-permisos-selection flex justify-around w-full">
+            <div class="calculator-control">
+              <div class="flex flex-col">
+                <span>Tipo</span>
+                <select id="controls-tipos" class="permisos-control-tipos"></select>
+              </div>
+              <div class="flex items-center">
+                <span class="controls-tipos-description controls-msg"></span>
+              </div>
             </div>
-            <div class="flex items-center">
-              <span class="controls-tipos-description"></span>
+            <div class="calculator-control">
+              <div class="flex flex-col">
+                <span>Usuario</span>
+                <select id="controls-user" class="permisos-control"></select>
+              </div>
+              <div class="flex items-center">
+                <span class="controls-user-description controls-msg"></span>
+              </div>
             </div>
-          </div>
-          <div class="calculator-control">
-            <div class="flex flex-col">
-              <span>Usuario</span>
-              <select id="controls-user" class="permisos-control"></select>
+            <div class="calculator-control">
+              <div class="flex flex-col">
+                <span>Grupo</span>
+                <select id="controls-group" class="permisos-control"></select>
+              </div>
+              <div class="flex items-center">
+                <span class="controls-group-description controls-msg"></span>
+              </div>
             </div>
-            <div class="flex items-center">
-              <span class="controls-user-description"></span>
+            <div class="calculator-control">
+              <div class="flex flex-col">
+                <span>Otros</span>
+                <select id="controls-others" class="permisos-control"></select>
+              </div>
+              <div class="flex items-center">
+                <span class="controls-others-description controls-msg"></span>
+              </div>
             </div>
-          </div>
-          <div class="calculator-control">
-            <div class="flex flex-col">
-              <span>Grupo</span>
-              <select id="controls-group" class="permisos-control"></select>
-            </div>
-            <div class="flex items-center">
-              <span class="controls-group-description"></span>
-            </div>
-          </div>
-          <div class="calculator-control">
-            <div class="flex flex-col">
-              <span>Otros</span>
-              <select id="controls-others" class="permisos-control"></select>
-            </div>
-            <div class="flex items-center">
-              <span class="controls-others-description"></span>
-            </div>
+          </form>
+        </section>
+        <section class="container-calculator advanced flex-col justify-start pt-0.5 pb-0.5 max-h-auto gap-0.5">
+          <form class="form-advanced-calculator py-0.5 flex justify-center">
+            <input type="text" name="permisos-control-input" maxlength="10" class="advanced-permisos-control border rounded" />
+          </form>
+          <div class="flex flex-col gap-1 *:font-roboto *:text-2xs items-center">
+            <span class="errors-advanced-permiso"></span>
+            <span class="meaning-advanced-permiso"></span>
           </div>
         </section>
-        <section class="container-calculator advanced"></section>
       </section>
     </main>
   </body>
