@@ -33,4 +33,13 @@ const permisos = {
   },
 }
 
-export default permisos
+const tiposPermisos = {
+  '-': 'Sin permiso',
+  'r': 'lectura',
+  'w': 'escritura',
+  'x': 'ejecución'
+}
+
+const permisosClaves = ['r', 'w', 'x', '-']
+
+export { permisos, permisosClaves, tiposPermisos }

@@ -1,5 +1,5 @@
 import { updateTabStore } from "./store.mjs"
-import { getElements } from "./utility.mjs"
+import { getElements, buildExplination } from "./utility.mjs"
 
 function init() {
   document.title = "Calculadora de Permisos"
@@ -46,6 +46,8 @@ function activeCalculator(i) {
 function setSelectionTab(i) {
   const e = getElements("tab")
     e.forEach((k, p) => {
+      resetPermisosForm()
+      resetAdvancedForm()
       k.classList.remove("font-bold")
       if (p === i) k.classList.add("font-bold")
     })
@@ -73,9 +75,17 @@ function buildControls(permisos) {
         }
       })
     })
+
+    getElements("form-advanced-calculator")
+      .forEach((k) => {
+        k.addEventListener("submit", (e) => {
+          e.preventDefault()
+          e.stopPropagation()
+        })
+      })
 }
 
-function buildControlsTipos(tipos) {
+function buildControlsTipos(tipos, permisos, regex) {
   getElements("permisos-control-tipos")
     .forEach((k) => {
       k.append(...buildOptionTipos(tipos))
@@ -86,11 +96,32 @@ function buildControlsTipos(tipos) {
         getElements("controls-tipos-description")[0].textContent = desc
       })
     })
+
+    getElements("advanced-permisos-control")
+    .forEach((k) => {
+      k.addEventListener("input", ({ _, target: { value } }) => {
+        getElements("errors-advanced-permiso")[0]
+            .textContent = 
+              !regex.test(value)
+                ? "Error detectado"
+                : ""
+        
+        if (value.length === 10) {
+          getElements("meaning-advanced-permiso")[0]
+            .innerHTML = regex.test(value)
+              ? buildExplination(value)
+              : ""
+        } else {
+          getElements("meaning-advanced-permiso")[0]
+            .innerHTML = ""
+        }
+      })
+    })
 }
 
 function buildOptionTipos(tipos) {
   return Object.entries(tipos)
-    .map(([a, { value, desc }]) => {
+    .map(([a, { value }]) => {
       const e = document.createElement("option")
       e.setAttribute("value", a)
       e.setAttribute("label", value)
@@ -121,6 +152,18 @@ function buildOptions(permisos) {
         return e
       }
     )
+}
+
+function resetAdvancedForm() {
+  getElements("form-advanced-calculator")[0].reset()
+  getElements("errors-advanced-permiso")[0].innerHTML = ''
+  getElements("meaning-advanced-permiso")[0].innerHTML = ''
+}
+
+function resetPermisosForm() {
+  getElements("form-permisos-selection")[0].reset()
+  getElements("controls-msg")
+    .forEach(k => k.textContent = '')
 }
 
 export {
